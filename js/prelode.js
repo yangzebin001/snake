@@ -18,7 +18,7 @@ var mapHeight = map.offsetHeight;
 var gridWidth, gridHeight;
 
 function getRandomColor() {
-    colorArr = ["#FFD700", "#FF7F50", "#EE30A7"];
+    colorArr = ["#FFB900", "#E74856", "#0078D7", "#0099BC", "#E81123", "#00CC6A", "#BC05BF", "#BF052E", "3EA70A"];
     return colorArr[getRandomInt(0, colorArr.length)];
 }
 

@@ -26,7 +26,7 @@ window.onkeypress = function(e) {
 var speed = 100;
 var foodArr = [];
 var foodNumber = 2;
-var foodColor = "red";
+var foodColor = getRandomColor();
 var snakeHeaderColor = "blue";
 var snakeBodyColor = "white";
 //初始化蛇、食物
