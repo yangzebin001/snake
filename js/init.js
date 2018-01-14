@@ -22,6 +22,74 @@ window.onkeypress = function(e) {
     }
 }
 
+// 监听鼠标
+window.onmousedown = function(e) {
+    var mousedownX = e.clientX;
+    var mousedownY = e.clientY;
+    console.log(mousedownX);
+    console.log(mousedownY);
+    window.onmouseup = function(e) {
+        var mouseupX = e.clientX;
+        var mouseupY = e.clientY;
+        console.log(mouseupX);
+        console.log(mouseupY);
+        // if (mouseupX - mousedownX < allowError && mouseupY - mousedownY > allowError) {
+        //     s.snakeHeaderDirection = "down";
+        //     console.log("向下滑动");
+        // } else if (mouseupX - mousedownX < allowError && mouseupY - mousedownY > -allowError) {
+        //     console.log("向上滑动");
+        // }
+        if (mouseupY - mousedownY > Math.abs(mouseupX - mousedownX)) {
+            console.log("向下滑动");
+            if (s.snakeHeaderDirection === "up") { return; }
+            s.snakeHeaderDirection = "down";
+        } else if (mousedownY - mouseupY > Math.abs(mouseupX - mousedownX)) {
+            console.log("向上滑动");
+            if (s.snakeHeaderDirection === "down") { return; }
+            s.snakeHeaderDirection = "up";
+        } else if (mouseupX - mousedownX > Math.abs(mousedownY - mouseupY)) {
+            console.log("向右滑动");
+            if (s.snakeHeaderDirection === "left") { return; }
+            s.snakeHeaderDirection = "right";
+        } else if (mousedownX - mouseupX > Math.abs(mousedownY - mouseupY)) {
+            console.log("向左滑动");
+            if (s.snakeHeaderDirection === "right") { return; }
+            s.snakeHeaderDirection = "left";
+        }
+    }
+}
+
+//监听触摸操作（适配手机）
+window.ontouchstart = function(e) {
+    var touchesstart = e.changedTouches;
+    console.dir(touchesstart);
+    var touchstartX = touchesstart[0].clientX;
+    var touchstartY = touchesstart[0].clientY;
+    window.ontouchend = function(e) {
+        var touchesend = e.changedTouches;
+        var touchendX = touchesend[0].clientX;
+        var touchendY = touchesend[0].clientY;
+        console.dir(touchesend);
+        if (touchendY - touchstartY > Math.abs(touchstartX - touchendX)) {
+            console.log("向下滑动");
+            if (s.snakeHeaderDirection === "up") { return; }
+            s.snakeHeaderDirection = "down";
+        } else if (touchstartY - touchendY > Math.abs(touchstartX - touchendX)) {
+            console.log("向上滑动");
+            if (s.snakeHeaderDirection === "down") { return; }
+            s.snakeHeaderDirection = "up";
+        } else if (touchendX - touchstartX > Math.abs(touchstartY - touchendY)) {
+            console.log("向右滑动");
+            if (s.snakeHeaderDirection === "left") { return; }
+            s.snakeHeaderDirection = "right";
+        } else if (touchstartX - touchendX > Math.abs(touchstartY - touchendY)) {
+            console.log("向左滑动");
+            if (s.snakeHeaderDirection === "right") { return; }
+            s.snakeHeaderDirection = "left";
+        }
+    }
+}
+
 //初始化参数
 var speed = 100;
 var foodArr = [];

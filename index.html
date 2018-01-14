@@ -3,18 +3,28 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
     <title>贪吃蛇</title>
+
     <style type="text/css">
+        * {
+            user-select: none;
+        }
+        
         #map {
-            width: 400px;
-            height: 400px;
+            width: 360px;
+            height: 360px;
             background-color: gray;
+            background-image: url(images/mapbg4.png);
             position: absolute;
             top: 50%;
             left: 50%;
-            margin-left: -200px;
-            margin-top: -200px;
-            /*overflow: hidden;*/
+            margin-left: -180px;
+            margin-top: -180px;
+            overflow: hidden;
+            /* user-select: none; */
         }
         
         #food {
@@ -22,12 +32,26 @@
             height: 20px;
             background: red;
         }
+        
+        h1 {
+            padding-top: 30px;
+        }
+        
+        .logo {
+            margin-top: -10px;
+        }
+        /* @media (man-width: 720px) {
+            #map {
+                width: 50%;
+            }
+        } */
     </style>
 
 </head>
 
 <body>
-    <h1 align="center">贪吃蛇</h1>
+
+    <h1 align="center"><img class="logo" src="images/snakelogo.png" alt="贪吃蛇" width="60px" height="60px">贪吃蛇</h1>
     <div id="map">
         <!-- <div id="food"></div> -->
     </div>
