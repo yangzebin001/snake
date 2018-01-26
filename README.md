@@ -26,5 +26,7 @@ snakeHeaderColor：蛇头部的颜色。
 snakeBodyColor：蛇身体的颜色。
 
 gameMode: 游戏模式
-  - "free": 自由模式
-  - "normal": 正常模式
+- "free": 自由模式
+- "normal": 正常模式
+
+gameScore: 游戏分数
