@@ -11,7 +11,7 @@ function Snake(options) {
     //     snakeHeaderY: 1
     //     
     //     snakeBodyColor: "white",
-    //     snakeBodyColor: [{
+    //     Body: [{
     //         gridX: 0,
     //         gridY: 1,
     //     }, {
@@ -37,7 +37,7 @@ function Snake(options) {
     //定义身体颜色
     this.snakeBodyColor = options.snakeBodyColor || "white";
     //定义身体坐标数组
-    this.body = options.snakeBodyBodyArr || [{
+    this.body = options.snakeBody || [{
         gridX: 0,
         gridY: 1,
     }, {
@@ -53,9 +53,6 @@ function Snake(options) {
     this.snakeAllHeaderY = 0;
 
 
-
-    //分数
-    this.score = 0;
 
     //头部
     var snakeHeader;
@@ -119,6 +116,10 @@ function Snake(options) {
             });
         }
     }
+    this.clearRander = function(map){
+        this.clearHeaderRander(map);
+        this.clearBodyRander(map);
+    }
 
     //移动蛇
     //蛇是否渲染过的标记。
@@ -170,7 +171,6 @@ function Snake(options) {
             gridX: this.body[0].gridX,
             gridY: this.body[0].gridY
         });
-        this.score += 1;
     }
 
     // this.die = function (map){

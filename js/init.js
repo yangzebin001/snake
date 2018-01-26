@@ -1,6 +1,20 @@
 //监听键盘：WSAD
 //w:119; a:97; s:115; d:100
 window.onkeypress = function(e) {
+    keyboardListener(e);
+}
+
+// 监听鼠标
+map.onmousedown = function(e) {
+    mouseListener(e);
+}
+
+//监听触摸操作（适配手机）
+window.ontouchstart = function(e) {
+    touchListener(e);
+}
+
+function keyboardListener(e){
     console.log(e.charCode);
     switch (e.charCode) {
         case 119:
@@ -21,14 +35,12 @@ window.onkeypress = function(e) {
             break;
     }
 }
-
-// 监听鼠标
-window.onmousedown = function(e) {
+function mouseListener(e){
     var mousedownX = e.clientX;
     var mousedownY = e.clientY;
     console.log(mousedownX);
     console.log(mousedownY);
-    window.onmouseup = function(e) {
+    map.onmouseup = function(e) {
         var mouseupX = e.clientX;
         var mouseupY = e.clientY;
         console.log(mouseupX);
@@ -59,8 +71,7 @@ window.onmousedown = function(e) {
     }
 }
 
-//监听触摸操作（适配手机）
-window.ontouchstart = function(e) {
+function touchListener(e){
     var touchesstart = e.changedTouches;
     console.dir(touchesstart);
     var touchstartX = touchesstart[0].clientX;
@@ -90,14 +101,21 @@ window.ontouchstart = function(e) {
     }
 }
 
+
 //初始化参数
-var speed = 100;
+var speed = 150;
 var foodArr = [];
 var foodNumber = 2;
 var foodColor = getRandomColor();
 var snakeHeaderColor = "blue";
 var snakeBodyColor = "white";
+var gameMode = "normal";
+var isGameOver = false;
+var isPause = false;
+var gameScore = 0;
 //初始化蛇、食物
-var s = initSnake(snakeHeaderColor, snakeBodyColor);
+var s;
+s = initSnake(snakeHeaderColor, snakeBodyColor);
 initFood(foodArr, foodNumber, foodColor);
+randerFoodArr(foodArr);
 gameLife(map, s, foodArr, foodColor, speed);

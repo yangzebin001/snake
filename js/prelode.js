@@ -19,7 +19,7 @@ var gridWidth, gridHeight;
 
 function getRandomColor() {
     colorArr = ["#FFB900", "#E74856", "#0078D7", "#0099BC", "#E81123", "#00CC6A", "#BC05BF", "#BF052E", "3EA70A"];
-    return colorArr[getRandomInt(0, colorArr.length)];
+    return colorArr[getRandomInt(0, colorArr.length-1)];
 }
 
 // console.log(getRandomColor());
